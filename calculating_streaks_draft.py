@@ -38,4 +38,24 @@ def calc_fixed_interval_streak_value(usr_answers_by_dates, step = 1 ) :
     return streak_value
 
 
-print(calc_fixed_interval_streak_value(example_answers_by_dates, 2))
+#print(calc_fixed_interval_streak_value(example_answers_by_dates, 2))
+
+def calc_flexible_interval_streak_value(usr_answers_by_dates, step = 1 ) :
+    
+    answers_only = [ v for v in usr_answers_by_dates.values() ]
+    streak_value = 0
+
+    for p, n in zip(answers_only[ 0 : : step ], answers_only[ 1 :  ] [ 0 : : step ] ) :
+        if [ p, n ].count('yes') >= 1 :
+            streak_value += 1
+        else :
+            if n == 'yes' :
+                streak_value = 1
+            else :
+                streak_value = 0
+    
+    return streak_value
+
+
+print(calc_flexible_interval_streak_value(example_answers_by_dates, 7))
+
