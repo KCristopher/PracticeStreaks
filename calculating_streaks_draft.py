@@ -21,7 +21,7 @@ for p, n in zip(answers_only, answers_only[ 1 : ] ) :
     #print(p, n, "Current streak value:", streak_value)
 
 
-def calc_fixed_interval_streak_value(usr_answers_by_dates, step = 1, flexible_interval = True ) :
+def calc_streak_value(usr_answers_by_dates, step = 1, flexible_interval = True ) :
     
     answers_only = [ v for v in usr_answers_by_dates.values() ]
     streak_value = 0
@@ -54,5 +54,5 @@ def calc_fixed_interval_streak_value(usr_answers_by_dates, step = 1, flexible_in
 
 
 
-print(calc_flexible_interval_streak_value(example_answers_by_dates, 7))
+print(calc_streak_value(example_answers_by_dates, 7))
 
